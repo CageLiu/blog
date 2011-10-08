@@ -1,7 +1,13 @@
 # Django settings for blog project.
+import socket
 
-DEBUG = False
-TEMPLATE_DEBUG = True
+if socket.gethostname() == 'localhost':
+	DEBUG = True
+else:
+	DEBUG = False
+
+#DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
 	('cage','517020375@qq.com'),
