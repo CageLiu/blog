@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+{{name.capitalize}}----{{title}}
+{% endblock %}
+
+{% block content %}
+<div class="article_details">
+	{% if details %}
+		<h1>{{title}}</h1>
+		<p class="articlebar">发表时间:<span>{{details.date}}</span><span>作者:{{details.author}}</span><span>类别:<a href="/{{details.article_type}}/">{{details.article_type}}</a></span></p>
+		<div class="details">
+			{{details.cont}}
+		</div>
+		<ul class="replay_list">
+			{% if replay %}
+			{% for item in replay %}
+			<li>
+			<p>{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.email}}&nbsp;&nbsp;于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.time}}</p>
+			<div>{{item.message}}</div>
+			</li>
+			{% endfor %}
+			{% else %}
+			<li class="empty_replay">暂无评论</li>
+			{% endif %}
+		</ul>
+		<form action="" method="post">
+			<div class="replay forms">
+				<h3 class="tit">发表评论:</h3>
+				<p><label>姓名:</label>{{form.name}}{%  if form.errors.name %}<span class="errors">{{form.errors.name}}</span>{% endif %}</p>
+				<p><label>邮箱:</label>{{form.email}}{% if form.errors.email %}<span class="errors">{{form.errors.email}}</span>{% endif %}</p>
+				<p><label>内容:</label>{{form.message}}{% if form.errors.message %}<span class="errors">{{form.errors.message}}</span>{% endif %}</p>
+				<p><input type="submit" value="提交" /></p>
+			</div>
+		</form>
+	{% else %}
+	<div class="return">文章不存在<a href="/{{name}}/">&lt;&lt; 返回</a></div>
+	{% endif %}
+</div>
+{% endblock %}

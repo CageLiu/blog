@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>{% block title %}{% endblock %}</title>
+		<link type="text/css" rel="stylesheet" href="/static/css/base.css" />
+		<script type="text/javascript" src="/static/js/jquery.js"></script>
+		<script type="text/javascript" src="/static/js/base.js"></script>
+		{% block outfile %}{% endblock %}
+	</head>
+	<body>
+		<div class="header" id="head">
+			<div class="nav">
+				{% block nav %}
+				<p class="current_posit">
+				<a href="/" class="home">首页</a>
+				{% if search %}
+					<i class="arrow pa">arrow</i><span>搜索 {{search}}</span>
+				{% else %}
+					{% if name and name != 'index' %}
+						<i class="arrow pa">arrow</i><a href="/{{name}}/">{{name.capitalize}}</a>
+					{% endif %}
+					{% if title %}
+					<i class="arrow pa">arrow</i><span>{{title}}</span>
+					{% endif %}
+				{% endif %}
+				</p>
+				{% endblock %}
+			</div>
+			<div class="logo">
+				<a href="/index/">Cage's blog</a>
+			</div>
+			<form action="/search/" method="get">
+				<div class="search">
+					<input type="text" value="{{search}}" name="search" class ="txt"/><input type="submit" class="btn" value="Search" />
+				</div>
+			</form>
+		</div>
+		<div class="sidebar">
+			<ul class="menu">
+				{% for item in category %}
+				<li {% if item.name == name %}class="current"{% endif %}><a href="/{{item.name}}/" title="{{item.zhcn}}">{{item.name.capitalize}}{% if item.name == 'about' or item.name == 'contact' %} Me{% endif %}</a><i class="arrow ma">arrow</i></li>
+				{% endfor %}
+			</ul>
+		</div>
+		<img id="loading" src="/static/img/loading.gif" alt="loading" />
+		<div class="wrapper" id="wrap">
+			<div class="content" id="content">
+				{% block content %}{% endblock %}
+			</div>
+			<div class="aside">
+				{% block aside %}
+					<dl>
+						<dt>相关文章</dt>
+						<dd>
+							<ul>
+								<li>test item</li>
+							</ul>
+						</dd>
+						<dt>热门文章</dt>
+						<dd>
+							<ul>
+								<li>test item</li>
+							</ul>
+						</dd>
+					</dl>
+				{% endblock %}
+			</div>
+		</div>
+		<div class="footer" id="foot">
+			<div class="fc">{% block  footer %}{% endblock %}</div>
+			<p>Copyright&copy;2011-2012 by Cage</p>
+			<span id="minator">&nbsp;</span>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+Cage's Blog{% if not name or name != 'index' %}----{{name}}相关文章{% endif %}
+{% endblock %}
+
+{% block outfile %}
+<link type="text/css" rel="stylesheet" href="../static/css/index.css" />
+{% endblock %}
+
+{% block content %}
+<ul class="article_list">
+	{% if article %}
+	{% for item in article %}
+	<li>
+		<div class="article">
+			<h2><a href='/{{item.article_type}}/{{item.title}}/'>{{item.title}}</a></h2>
+			<p class="articlebar"><span>时间:{{item.date}}</span><span>作者:{{item.author}}</span>类别:<a href="/{{item.article_type}}/">{{item.article_type}}</a></p>
+			<div class="details">
+				{{item.cont|slice:":75"}}...
+				{{abc}}
+				<a class="view" href="/{{item.article_type}}/{{item.title}}/">&lt;&lt;查看</a>
+			</div>
+		</div>
+	</li>
+	{% endfor %}
+	{% else %}
+	<li class="empty_cont">暂无<strong>{% if search %} {{search}} {% else %} {{name}} {% endif %}</strong>相关的文章</li>
+		<li class="other">
+			去其他地方看看：
+			{% for item in category %}
+				{% if item.name != name and item.name != "contact" and item.name != "about" %}
+					<a href="/{{item.name}}/">{{item.name.capitalize}}</a>
+				{% endif %}
+			{% endfor %}
+		</li>
+	{% endif %}
+</ul>
+{% endblock %}
