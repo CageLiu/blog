@@ -3,15 +3,17 @@
 	margin:0;
 	padding:0;
 }
+html{
+	overflow-y:scroll
+}
 html,body{
-	overflow:hidden;
 	height:100%;
 	position:relative;
 }
 body{
 	font-size:12px;
-	background:#fff;
-	color:#333;
+	color:#fff;
+	padding-left:150px;
 	background:#333;
 }
 a{
@@ -34,7 +36,7 @@ textarea{
 .clearfix{
 	zoom:1;
 }
-.clearfix:after{
+.clearfix:after, .outer_wrap:after{
 	content:"";
 	diplay:block;
 	clear:both;
@@ -46,10 +48,11 @@ textarea{
 /* css reset end */
 .outer_wrap{
 	float:left;
-	position:relative;
+	position:absolute;
 	left:50%;
 	top:50%;
-	height:111px;
+	zoom:1;
+	height:112px;
 }
 .inner_wrap{
 	float:left;
@@ -62,9 +65,16 @@ textarea{
 }
 .inner_wrap p{
 	position:relative;
-	line-height:30px;
-	height:30px;
-	padding-left:80px;
+	padding:8px 0 8px 80px;
+	float:left;
+	clear:both;
+	zoom:1;
+}
+.inner_wrap p input.txt, .inner_wrap p input.pwd{
+	width:200px;
+	height:22px;
+	line-height:22px;
+	border:1px solid #ccc;
 }
 .inner_wrap p label{
 	display:inline-block;
@@ -72,14 +82,82 @@ textarea{
 	padding-right:5px;
 	position:absolute;
 	left:0;
-	top:0;
+	top:8px;
 	text-align:right;
 	color:#65769A;
 	font-weight:bold;
+	height:24px;
+	line-height:24px;
 }
 span.tips{
 	color:#fff;
 	font-weight:bold;
 	height:21px;
 	line-height:21px;
+}
+.toolbar{
+	width:150px;
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	border-right:3px solid #888
+}
+.toolbar li.current a{
+	/*font-weight:bold;*/
+	background:#65769a;
+}
+.toolbar a{
+	color:#fff;
+	font-size:14px;
+	display:block;
+	height:27px;
+	line-height:27px;
+	padding-left:20px;
+}
+.wrapper{
+	border-left:3px solid #888;
+	padding-left:10px;
+}
+#id_cont{
+	width:1030px;
+	height:400px
+}
+.admin_form p{
+	position:relative;
+	padding:8px 0 8px 60px;
+	zoom:1;
+}
+.admin_form p label{
+	position:absolute;
+	top:11px;
+	left:0;
+	text-align:right;
+	padding-right:4px;
+	width:56px;
+	color:#fff;
+}
+h3.title{
+	font-size:14px;
+	height:25px;
+	line-height:25px;
+	background:#65769a;
+	padding-left:8px;
+}
+ul.list li{
+	padding-left:24px;
+	line-height:25px;
+	border-bottom:1px solid #555
+}
+ul.list li span{
+	display:inline-block;
+	width:85%;
+	font-weight:bold
+}
+ul.list li a{
+	color:#fff;
+	margin-right:8px;
+}
+p.delete{
+	padding-top:10px;
 }

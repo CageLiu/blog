@@ -1,12 +1,5 @@
 # Django settings for blog project.
-import socket
-
-if socket.gethostname() == 'localhost':
-	DEBUG = True
-else:
-	DEBUG = False
-
-#DEBUG = True
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -18,12 +11,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'blog',                      # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': '256269',                  # Not used with sqlite3.
-        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'mysql', 							# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'blog',                      		# Or path to database file if using sqlite3.
+        'USER': 'root',                      		# Not used with sqlite3.
+        'PASSWORD': '256269',                  		# Not used with sqlite3.
+        'HOST': 'localhost',                      	# Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      			# Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -87,9 +80,9 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-   #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
+STATIC_PATH = '/var/www/blog/static'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'j#9kujponq%$10yogb1#w36cq6%x(ou*aor6_sder(cbo#fqst'
 
@@ -97,15 +90,15 @@ SECRET_KEY = 'j#9kujponq%$10yogb1#w36cq6%x(ou*aor6_sder(cbo#fqst'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+	#'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
 )
 
 ROOT_URLCONF = 'blog.urls'

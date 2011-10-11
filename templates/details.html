@@ -3,37 +3,52 @@
 {{name.capitalize}}----{{title}}
 {% endblock %}
 
+{% block outfile %}
+<script type="text/javascript" src="/KEplugin/public/jquery.syntax.js"></script>
+<script type="text/javascript" src="/KEplugin/public/jquery.syntax.cache.js"></script>
+<style type="text/css">
+	ol{
+		list-style:decimal
+	}
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="article_details">
 	{% if details %}
 		<h1>{{title}}</h1>
-		<p class="articlebar">发表时间:<span>{{details.date}}</span><span>作者:{{details.author}}</span><span>类别:<a href="/{{details.article_type}}/">{{details.article_type}}</a></span></p>
-		<div class="details">
-			{{details.cont}}
+		<p class="articlebar">发表时间:<span>{{details.date}}</span><span>作者:{{details.author}}</span><span>类别:<a href="/blog/{{details.article_type}}/">{{details.article_type}}</a></span></p>
+		<div class="details" id="details">
+			{{details.cont|safe}}
 		</div>
 		<ul class="replay_list">
 			{% if replay %}
-			{% for item in replay %}
-			<li>
-			<p>{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.email}}&nbsp;&nbsp;于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.time}}</p>
-			<div>{{item.message}}</div>
-			</li>
-			{% endfor %}
+				{% for item in replay %}
+					<li>
+						<p>{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.email}}&nbsp;&nbsp;于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.time}}</p>
+						<div>{{item.message}}</div>
+					</li>
+				{% endfor %}
 			{% else %}
-			<li class="empty_replay">暂无评论</li>
+				<li class="empty_replay">暂无评论</li>
 			{% endif %}
 		</ul>
 		<form action="" method="post">
 			<div class="replay forms">
 				<h3 class="tit">发表评论:</h3>
-				<p><label>姓名:</label>{{form.name}}{%  if form.errors.name %}<span class="errors">{{form.errors.name}}</span>{% endif %}</p>
+				<p><label>名称:</label>{{form.name}}{%  if form.errors.name %}<span class="errors">{{form.errors.name}}</span>{% endif %}</p>
 				<p><label>邮箱:</label>{{form.email}}{% if form.errors.email %}<span class="errors">{{form.errors.email}}</span>{% endif %}</p>
 				<p><label>内容:</label>{{form.message}}{% if form.errors.message %}<span class="errors">{{form.errors.message}}</span>{% endif %}</p>
-				<p><input type="submit" value="提交" /></p>
+				<p><input type="submit" value="提交" class="btn" /></p>
 			</div>
 		</form>
 	{% else %}
-	<div class="return">文章不存在<a href="/{{name}}/">&lt;&lt; 返回</a></div>
+	<div class="return">文章不存在<a href="/blog/{{name}}/">&lt;&lt; 返回</a></div>
 	{% endif %}
 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		jQuery.syntax()		
+	})
+</script>
 {% endblock %}

@@ -15,7 +15,6 @@ class Article(models.Model):
 	date = models.DateField()
 	author = models.CharField(max_length = 30)
 	cont = models.CharField(max_length = 5000)
-	parent_id = models.CharField(max_length = 5000)
 	article_type = models.CharField(max_length = 30)
 
 	def __unicode(self):
@@ -30,7 +29,6 @@ class Replays(models.Model):
 	message = models.CharField(max_length = 5000)
 	time = models.DateField()
 	article_id = models.CharField(max_length = 5000)
-	parent_id = models.CharField(max_length = 5000)
 
 	def __unicode(self):
 		return self.name

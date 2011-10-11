@@ -1,16 +1,18 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
 admin.autodiscover()
-
+import settings
 import view
 
 urlpatterns = patterns('',
-	(r'^$',view.index),
-	(r'^onlyme/$',view.admin),
-	(r'^manager/$',view.manager),
-	(r'^search/$',view.index),
-	(r'^(?P<name>\w*)/$',view.index),
-	(r'^(?P<name>\w*)/(?P<title>\w*)/$',view.index,{'template_name':'details.html'}),
+	(r'^blog/$',view.index),
+	(r'^blog/onlyme/$',view.admin),
+	(r'^blog/manager/$',view.manager),
+	(r'^blog/manager/(?P<operation>\w+)/$',view.manager),
+	(r'^blog/search/$',view.index),
+	(r'^blog/(?P<name>\w+)/$',view.index),
+	(r'^blog/(?P<name>\w+)/(?P<arid>\w+)/$',view.index,{'template_name':'details.html'}),
+	('^static_url/(?P<path>.*)','django.views.static.serve',{'document_root': settings.STATIC_PATH}),
 
 
 

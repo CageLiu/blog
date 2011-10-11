@@ -1,0 +1,22 @@
+{% extends 'add_base.html' %}
+
+{% block title %}
+添加管理员
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+	<div class="admin_form">
+		<p>
+			<label>用户名:</label>{{add_user_form.usm}}
+		</p>
+		<p>
+			<label>密码:</label>{{add_user_form.pwd}}
+		</p>
+		<p>
+			<label>确认密码:</label>{{add_user_form.confirm_pwd}}
+		</p>
+		<p><input type="submit" value="确认添加" /></p>
+	</div>
+</form>
+{% endblock %}

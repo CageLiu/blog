@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>{% block title %}{% endblock %}</title>
+		<link type="text/css" rel="stylesheet" href="/static_url/css/admin.css" />
+		{% block outfile %}{% endblock %}
+	</head>
+	<body>
+		<div class="toolbar">
+			<ul>
+				<li {% if not operation %} class="current" {% endif %}><a href="/blog/manager/">管理首页</a></li>
+				<li {% if operation == 'add_user' %} class="current" {% endif %}><a href="/blog/manager/add_user/">添加用户</a></li>
+				<li {% if operation == 'add_article' %} class="current" {% endif %}><a href="/blog/manager/add_article/">添加文章</a></li>
+			</ul>
+		</div>
+		<div class="wrapper">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

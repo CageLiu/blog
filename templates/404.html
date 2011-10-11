@@ -5,6 +5,13 @@
 		<title>404</title>
 	</head>
 	<body>
-		页面未找到
+		{% for item in category %}
+		<a href="/blog/{{item.name}}/">{{item.name}}</a>
+		{% endfor %}
+		<br>
+
+		{% for item in category_list %}
+		<a href="/blog/{{item}}/">{{item}}</a>
+		{% endfor %}
 	</body>
 </html>

@@ -1,0 +1,18 @@
+{% extends 'add_base.html' %}
+
+{% block title %}后台管理{% endblock %}
+
+{% block content %}
+<h3 class="title">管理员列表(共 {{user|length}} 个)</h3>
+<ul class="list">
+	{% for item in user %}
+	<li>{{item.username}}</li>
+	{% endfor %}
+</ul>
+<h3 class="title">文章列表(共 {{article|length}} 篇)</h3>
+<ul class="list">
+	{% for item in article %}
+	<li><span>{{item.title}}</span><a href="/blog/manager/?aid={{item.id}}">删除</a><a href="/blog/manager/add_article/?aid={{item.id}}">编辑</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}
