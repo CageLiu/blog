@@ -413,6 +413,9 @@ ul.replay_list li p{
 	left:168px;
 	background:url(../img/icon.png) no-repeat center -64px
 }
+.error404{
+	background:url(../img/404.png) no-repeat center center
+}
 /*
  *#minator{
  *    position:absolute;

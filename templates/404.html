@@ -3,15 +3,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>404</title>
+		<link type="text/css" rel="stylesheet" href="/static_url/css/base.css" />
+		<style type="text/css">
+		</style>
 	</head>
-	<body>
-		{% for item in category %}
-		<a href="/blog/{{item.name}}/">{{item.name}}</a>
-		{% endfor %}
-		<br>
+	<body class="error404">
 
-		{% for item in category_list %}
-		<a href="/blog/{{item}}/">{{item}}</a>
-		{% endfor %}
 	</body>
 </html>
