@@ -411,10 +411,7 @@ ul.replay_list li p{
 	width:24px;
 	height:24px;
 	left:168px;
-	background:url(../img/icon.png) no-repeat center -64px
-}
-.error404{
-	background:url(../img/404.png) no-repeat center center
+	background:url(/static_url/img/icon.png) no-repeat center -64px
 }
 /*
  *#minator{

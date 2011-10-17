@@ -41,7 +41,7 @@ def index(request,name="",arid="",template_name="index.html"):
 				cont = form.cleaned_data
 				cont['article_id'] = details.id
 				Replays(name=cont['name'],message=cont['message'],article_id=cont['article_id'],email=cont['email']).save()
-				return HttpResponseRedirect("/blog/" + name +"/" + arid + "/")
+				return HttpResponseRedirect("/blog/" + name +"/" + str(arid) + "/")
 			if form['name'].errors:
 				form.errors['name'] = '姓名不能为空!'
 			if form['email'].errors:
@@ -80,6 +80,7 @@ def admin(request):
 				else:
 					if rightpwd == md5(pwd).hexdigest():
 						request.session['username'] = usm
+						request.session.set_expiry(0)
 						return HttpResponseRedirect('/blog/manager/')
 					else:
 						ptips = '密码错误!'

@@ -33,7 +33,7 @@
 				<li class="empty_replay">暂无评论</li>
 			{% endif %}
 		</ul>
-		<form action="" method="post">
+		<form action="" method="post" id="replay_form">
 			<div class="replay forms">
 				<h3 class="tit">发表评论:</h3>
 				<p><label>名称:</label>{{form.name}}{%  if form.errors.name %}<span class="errors">{{form.errors.name}}</span>{% endif %}</p>
