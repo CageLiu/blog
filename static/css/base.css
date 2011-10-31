@@ -119,6 +119,7 @@ textarea{
 	width:177px;
 	border-right:3px solid #65769A;
 	z-index:8;
+    overflow-y:auto
 }
 .content{
 	padding:33px 305px 35px 195px;
@@ -132,7 +133,7 @@ textarea{
 	border-style:solid;
 }
 .sidebar ul.menu{
-	padding-top:68px;
+    padding:68px 0 36px;
 }
 ul.menu li{
 	padding-left:20px;
