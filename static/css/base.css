@@ -122,7 +122,7 @@ textarea{
     overflow-y:auto
 }
 .content{
-	padding:33px 305px 35px 195px;
+	padding:33px 23% 35px 195px;
 }
 .arrow{
 	display:inline-block;
@@ -200,7 +200,7 @@ ul.menu li.current i.ma{
 ul.article_list{
 	overflow:hidden
 }
-ul.article_list li{
+ul.article_list li.item{
 	padding-left:10px;
 	margin-top:-1px;
 	padding-top:18px;
@@ -255,11 +255,13 @@ ul.article_list li.other a{
 .article_details .details{
 	padding-top:10px
 }
-.article_details .details img{
-	display:block;
-	margin:0 auto;
-	max-width:840px;
-}
+/*
+ *.article_details .details img{
+ *    display:block;
+ *    margin:0 auto;
+ *    max-width:840px;
+ *}
+ */
 .article_details p.articlebar a,#details p a{
 	color:#65769A;
 	text-shadow:1px 1px 2px #ccc;

@@ -7,7 +7,7 @@ Cage's Blog{% if name and name != 'index' %}----{{name}}相关文章{% endif %}
 <ul class="article_list">
 	{% if article %}
 	{% for item in article %}
-	<li>
+	<li class="item">
 		<div class="article">
 			<h2><a href='/blog/{{item.article_type}}/{{item.id}}/'>{{item.title}}</a></h2>
 			<p class="articlebar"><span>时间:{{item.date}}</span><span>作者:{{item.author}}</span>类别:<a href="/blog/{{item.article_type}}/">{{item.article_type}}</a></p>
