@@ -60,7 +60,6 @@ def index(request,name="",arid="",template_name="index.html"):
 		template_name = 'index.html'
 	return render_to_response(template_name,locals())
 
-
 def admin(request):
 	if request.session.get('username'):
 		return HttpResponseRedirect('/blog/manager/')
