@@ -143,3 +143,4 @@ LOGGING = {
         },
     }
 }
+CACHE_BACKEND = 'memcached://127.0.0.1:13031'

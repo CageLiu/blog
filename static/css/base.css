@@ -322,6 +322,10 @@ ul.replay_list li{
 	margin:-1px 0 8px;
 	zoom:1;
 }
+ul.replay_list li div{
+    word-wrap:break-word;
+    line-height:21px;
+}
 ul.replay_list li p{
 	padding-bottom:8px;
 	font-weight:bold

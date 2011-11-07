@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-Cage's Blog{% if name and name != 'index' %}----{{name}}相关文章{% endif %}
+Cage's Blog{% if name and name != 'index' %} | {{name}}相关文章{% endif %}
 {% endblock %}
 
 {% block content %}
